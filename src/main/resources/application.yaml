@@ -17,4 +17,8 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/ # Se registra no Eureka que você já criou
+      # MUDANÇA CRUCIAL AQUI 👇
+      # Trocamos 'localhost' pelo nome do container 'eureka-server'
+      defaultZone: http://eureka-server:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true

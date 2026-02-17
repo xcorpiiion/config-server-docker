@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true # Isso aqui é o "auto-map": ele cria rotas automáticas baseadas no nome do serviço no Eureka
+      routes:
+        - id: micro-vini-rota
+          uri: lb://MICRO-SERVICO-VINI # "lb" de Load Balancer + nome do serviço no Eureka
+          predicates:
+            - Path=/vini/** # Tudo que chegar em localhost:8080/vini/ vai pro microserviço

@@ -1,0 +1,20 @@
+server:
+  port: 8888 # Porta padrão do Config Server (tipo o canal de dados)
+
+spring:
+  application:
+    name: config-server # Nome que vai aparecer lá no seu Eureka
+  profiles:
+    active: native # Diz que ele vai ler arquivos de uma pasta local, não do Git
+  cloud:
+    config:
+      server:
+        native:
+          # Caminho da pasta onde você vai criar os arquivos .yml dos outros serviços
+          # Exemplo: C:/Users/Vini/Desktop/configs ou ./config-repo
+          search-locations: classpath:/configs
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/ # Se registra no Eureka que você já criou

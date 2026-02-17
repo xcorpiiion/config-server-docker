@@ -14,7 +14,7 @@ spring:
         locator:
           enabled: true # Isso aqui é o "auto-map": ele cria rotas automáticas baseadas no nome do serviço no Eureka
       routes:
-        - id: micro-vini-rota
-          uri: lb://MICRO-SERVICO-VINI # "lb" de Load Balancer + nome do serviço no Eureka
+        - id: player-service-rota
+          uri: lb://PLAYER-DOCKER  # Deve ser o nome exato do spring.application.name
           predicates:
-            - Path=/vini/** # Tudo que chegar em localhost:8080/vini/ vai pro microserviço
+            - Path=/players/** # Tudo que chegar em :8080/players/ vai para o seu novo serviço
